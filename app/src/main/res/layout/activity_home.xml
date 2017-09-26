@@ -24,7 +24,9 @@
             android:textColor="#90000000"
             android:textScaleX="1.1"
             android:typeface="normal"/>
-        <RelativeLayout
+    </LinearLayout>
+
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <GridView
@@ -39,7 +41,6 @@
 
             </GridView>
         </RelativeLayout>
-    </LinearLayout>
 
 
 </LinearLayout>
