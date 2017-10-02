@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
                             showInterPwdDialog();
                         }else{
                             //弹出设置密码对话框
-                            showInterPwdDialog();
+                            showSetUpPwdDialog();
                         }
                         break;
                 }
