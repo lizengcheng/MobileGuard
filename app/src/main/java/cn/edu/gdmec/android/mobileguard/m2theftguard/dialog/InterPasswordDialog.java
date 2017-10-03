@@ -66,7 +66,7 @@ public class InterPasswordDialog extends Dialog implements View.OnClickListener{
             case R.id.btn_confirm:
                 myCallBack.confirm();
                 break;
-            case R.id.btn_cancel:
+            case R.id.btn_dismiss:
                 myCallBack.cancel();
                 break;
         }

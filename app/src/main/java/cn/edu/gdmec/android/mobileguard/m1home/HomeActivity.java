@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity {
                                 //两次密码一致，存储密码
                                 savePwd(affirmPwd);
                                 setupPasswordDialog.dismiss();
-                                showSetUpPwdDialog();
+                                showInterPwdDialog();
                             }else{
                                 Toast.makeText(HomeActivity.this, "两次密码不一致", Toast.LENGTH_LONG).show();
                             }
@@ -122,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void confirm() {
                 if (TextUtils.isEmpty(interPasswordDialog.getPassword())){
-                    Toast.makeText(HomeActivity.this, "密码不能为空", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity.this, "密码不能为空", 0).show();
                 }else if (password.equals(MD5Utils.encode(interPasswordDialog
                         .getPassword()))){
                     //进入防盗页面
@@ -132,10 +132,9 @@ public class HomeActivity extends AppCompatActivity {
                 }else{
                     //对话框消失，弹出土司
                     interPasswordDialog.dismiss();
-                    Toast.makeText(HomeActivity.this, "密码有误，请重新输入!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity.this, "密码有误，请重新输入!", 0).show();
                 }
             }
-
             @Override
             public void cancel() {
                 interPasswordDialog.dismiss();
