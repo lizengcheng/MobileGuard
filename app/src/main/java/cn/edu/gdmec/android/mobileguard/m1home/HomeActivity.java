@@ -11,10 +11,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
 
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetupPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
@@ -127,7 +127,7 @@ public class HomeActivity extends AppCompatActivity {
                         .getPassword()))){
                     //进入防盗页面
                     interPasswordDialog.dismiss();
-                    //startActivity(LostActivity.class);
+                    startActivity(LostFindActivity.class);
                     Toast.makeText(HomeActivity.this, "可以进入手机防盗模块", Toast.LENGTH_LONG).show();
                 }else{
                     //对话框消失，弹出土司
