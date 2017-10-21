@@ -2,6 +2,7 @@ package cn.edu.gdmec.android.mobileguard.m2theftguard;
 
 import android.os.Bundle;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
@@ -20,7 +21,7 @@ public class Setup4Activity extends BaseSetUpActivity {
 
     @Override
     public void showNext() {
-        startActivityAndFinishSelf(LostFindActivity.class);
+        Toast.makeText(this,"完成",Toast.LENGTH_LONG).show();
     }
 
     @Override

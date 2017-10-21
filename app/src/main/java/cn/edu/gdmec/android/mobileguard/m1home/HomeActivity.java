@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
+        //第一个参数是存储时的名称，第二个参数则是文件的打开方式
         msharedPreferences = getSharedPreferences("config",MODE_PRIVATE);
         gv_home = (GridView) findViewById(R.id.gv_home);
         gv_home.setAdapter(new HomeAdapter(HomeActivity.this));
@@ -122,7 +123,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void confirm() {
                 if (TextUtils.isEmpty(interPasswordDialog.getPassword())){
-                    Toast.makeText(HomeActivity.this, "密码不能为空", 0).show();
+                    Toast.makeText(HomeActivity.this, "密码不能为空", Toast.LENGTH_LONG).show();
                 }else if (password.equals(MD5Utils.encode(interPasswordDialog
                         .getPassword()))){
                     //进入防盗页面
@@ -132,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
                 }else{
                     //对话框消失，弹出土司
                     interPasswordDialog.dismiss();
-                    Toast.makeText(HomeActivity.this, "密码有误，请重新输入!", 0).show();
+                    Toast.makeText(HomeActivity.this, "密码有误，请重新输入!", Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -179,8 +180,4 @@ public class HomeActivity extends AppCompatActivity {
         }
         return true;
     }
-
-
-
-
 }

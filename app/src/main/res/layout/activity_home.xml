@@ -14,7 +14,7 @@
 
         <ImageView
             android:layout_width="101dp"
-            android:layout_height="107dp"
+            android:layout_height="120dp"
             android:background="@drawable/superman"
             android:scaleType="fitXY" />
 
@@ -36,11 +36,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/gv_home"
-                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:horizontalSpacing="10dp"
                 android:verticalSpacing="10dp"
-                android:numColumns="3">
+                android:numColumns="3"
+                android:layout_centerHorizontal="true">
 
             </GridView>
         </RelativeLayout>
