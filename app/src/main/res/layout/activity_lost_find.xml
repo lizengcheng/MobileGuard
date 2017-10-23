@@ -72,6 +72,7 @@
         android:background="#10000000"/>
 
     <RelativeLayout
+        android:id="@+id/rl_inter_setup_wizard"
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
