@@ -61,7 +61,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/toggle_btn_bg_selector"
-            android:textOn="true"
+            android:textOn=""
             android:textOff=""/>
 
     </RelativeLayout>

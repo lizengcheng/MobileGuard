@@ -40,7 +40,7 @@ public class Setup2Activity extends BaseSetUpActivity implements View.OnClickLis
 
     //验证是否绑定了SIM卡
     private boolean isBind(){
-        String simString = sp.getString("sim",null);
+        String simString = sp.getString("sim","999");
         if(TextUtils.isEmpty(simString)){
             return false;
         }

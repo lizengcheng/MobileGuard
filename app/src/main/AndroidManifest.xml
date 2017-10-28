@@ -13,12 +13,14 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity" />
         <activity android:name=".m1home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,13 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashActivity" />
         <activity android:name=".m2theftguard.LostFindActivity" />
         <activity android:name=".m2theftguard.Setup1Activity" />
         <activity android:name=".m2theftguard.Setup2Activity" />
         <activity android:name=".m2theftguard.Setup3Activity" />
         <activity android:name=".m2theftguard.Setup4Activity" />
-        <activity android:name=".m2theftguard.ContactSelectActivity" />
 
         <receiver
             android:name=".m2theftguard.receiver.BootCompleteReceiver"
@@ -42,12 +42,15 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".m2theftguard.ContactSelectActivity" />
+
         <service
             android:name=".m2theftguard.service.GPSLocationService"
             android:enabled="true"
-            android:exported="true">
-        </service>
-        <receiver android:name=".m2theftguard.receiver.SmsLostFindReceiver"
+            android:exported="true"/>
+        <receiver
+            android:name=".m2theftguard.receiver.SmsLostFindReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -61,9 +64,9 @@
             android:enabled="true">
             <meta-data
                 android:name="android.app.device_admin"
-                android:resource="@layout/device_admin_sample"/>
+                android:resource="@xml/device_admin_sample"/>
             <intent-filter>
-                <action android:name="android.intent.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
             </intent-filter>
         </receiver>
         
