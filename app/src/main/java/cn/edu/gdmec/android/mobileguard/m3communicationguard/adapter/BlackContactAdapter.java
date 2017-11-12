@@ -26,6 +26,7 @@ public class BlackContactAdapter extends BaseAdapter{
     class ViewHolder{
         TextView mNameTV;
         TextView mModeTV;
+        TextView mTypeTV;
         View mContactImgv;
         View mDeleteVeiw;
     }
@@ -69,6 +70,7 @@ public class BlackContactAdapter extends BaseAdapter{
             holder = new ViewHolder();
             holder.mNameTV = (TextView) view.findViewById(R.id.tv_black_name);
             holder.mModeTV = (TextView) view.findViewById(R.id.tv_black_mode);
+            holder.mTypeTV = (TextView) view.findViewById(R.id.tv_black_type);
             holder.mContactImgv = view.findViewById(R.id.view_black_icon);
             holder.mDeleteVeiw = view.findViewById(R.id.view_black_delete);
             view.setTag(holder);
@@ -79,9 +81,12 @@ public class BlackContactAdapter extends BaseAdapter{
                 + contactInfos.get(position).phoneNumber + ")");
         holder.mModeTV.setText(contactInfos.get(position).getModeString(
                 contactInfos.get(position).mode));
+        holder.mTypeTV.setText(contactInfos.get(position).blackType);
         holder.mNameTV.setTextColor(context.getResources().getColor(
                 R.color.bright_purple));
         holder.mModeTV.setTextColor(context.getResources().getColor(
+                R.color.bright_purple));
+        holder.mTypeTV.setTextColor(context.getResources().getColor(
                 R.color.bright_purple));
         holder.mContactImgv.setBackgroundResource(R.drawable.brightpurple_contact_icon);
         holder.mDeleteVeiw.setOnClickListener(new View.OnClickListener(){
