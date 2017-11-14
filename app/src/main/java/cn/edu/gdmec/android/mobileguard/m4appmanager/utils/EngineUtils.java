@@ -77,7 +77,7 @@ public class EngineUtils {
      */
     public static void showAboutDialog(Context context, AppInfo appInfo){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("MobileGuard");	    //设置对话框标题
+        builder.setTitle(appInfo.appName);	    //设置对话框标题
         builder.setMessage("Version："+appInfo.appVersion+"\nInstall time："+appInfo.installTime
                     +"\nCertificate issuer："+appInfo.certificateIssuer
                     +"\nPermissions："+appInfo.appPermissions);
@@ -88,11 +88,33 @@ public class EngineUtils {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case AlertDialog.BUTTON_POSITIVE:// "确认"按钮退出程序
-
+                        dialog.dismiss();
                         break;
                 }
             }
         });
+        AlertDialog dialog = builder.create();	//创建对话框
+        dialog.show();
+
+    }
+    public static void showActivitiesDialog(Context context, AppInfo appInfo){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(appInfo.appName);	    //设置对话框标题
+        builder.setMessage("Activities：\n"+appInfo.appActivities);
+
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case AlertDialog.BUTTON_POSITIVE:// "确认"按钮退出程序
+                        dialog.dismiss();
+                        break;
+                }
+            }
+        });
+
+
         AlertDialog dialog = builder.create();	//创建对话框
         dialog.show();
 

@@ -18,6 +18,8 @@ public class BlackContactInfo {
     /** 黑名单类型 */
     public String blackType;
 
+    public String type;
+
     public String getModeString(int mode){
         switch (mode){
             case 1:
