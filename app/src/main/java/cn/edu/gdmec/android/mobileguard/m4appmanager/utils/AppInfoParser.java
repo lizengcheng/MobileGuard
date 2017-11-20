@@ -1,5 +1,7 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
@@ -9,11 +11,13 @@ import android.graphics.drawable.Drawable;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 
@@ -151,6 +155,19 @@ public class AppInfoParser {
                 if (packInfo.requestedPermissions != null){
                     for (String pio : packInfo.requestedPermissions){
                         appinfo.appPermissions = appinfo.appPermissions + pio + "\n";
+                    }
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            //APP activity
+            try {
+                packInfo = pm.getPackageInfo(packname,PackageManager.GET_ACTIVITIES);
+
+                ActivityInfo[] activityInfo = packInfo.activities;
+                if(activityInfo != null){
+                    for(ActivityInfo info : activityInfo){
+                        appinfo.appActivities = appinfo.appActivities+info.name+"\n";
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {

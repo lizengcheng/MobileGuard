@@ -1,6 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.entity;
 
-import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 
 /**
@@ -34,7 +33,6 @@ public class AppInfo {
     public String certificateIssuer;
     /** 权限申请信息 */
     public String appPermissions;
-    /** activity */
     public String appActivities;
 
     /** 拿到App位置字符串 */
