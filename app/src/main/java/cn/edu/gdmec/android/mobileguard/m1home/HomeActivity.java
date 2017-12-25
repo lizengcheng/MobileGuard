@@ -76,8 +76,10 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 6:
                         startActivity(TrafficMonitoringActivity.class);
+                        break;
                     case 7:
                         startActivity(AdvancedToolsActivity.class);
+                        break;
                 }
             }
         });
