@@ -9,13 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import cn.edu.gdmec.android.mobileguard.m1home.HomeActivity;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.MyUtils;
 
 public class SplashActivity extends AppCompatActivity {
     private TextView mTvVersion;
     private String mVersion;
-    private static final int MY_PERMISSION_REQUEST_PACKAGE_USAGE_STATS=1101;
+    private static final int MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS=1101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +27,21 @@ public class SplashActivity extends AppCompatActivity {
         if(!hasPermission()){
             startActivityForResult(
                     new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS),
-                    MY_PERMISSION_REQUEST_PACKAGE_USAGE_STATS
+                    MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS
             );
         }
-        final VersionUpdateUtils versionUpdateUtils = new VersionUpdateUtils(mVersion,SplashActivity.this);
+        VersionUpdateUtils.DownloadCallback downloadCallback = new VersionUpdateUtils.DownloadCallback() {
+            @Override
+            public void afterDownload(String filename) {
+                MyUtils.installApk(SplashActivity.this,filename);
+            }
+        };
+        final VersionUpdateUtils versionUpdateUtils = new VersionUpdateUtils(mVersion,SplashActivity.this, downloadCallback,HomeActivity.class);
         new Thread(){
             @Override
             public void run(){
                 super.run();
-                versionUpdateUtils.getCloudVersion();
+                versionUpdateUtils.getCloudVersion("http://android2017.duapp.com/updateinfo.html");
             }
         }.start();
     }
@@ -51,12 +58,12 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        if (requestCode == MY_PERMISSION_REQUEST_PACKAGE_USAGE_STATS) {
+        if (requestCode == MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS) {
             if (!hasPermission()) {
                 //若用户未开启权限，则引导用户开启“Apps with usage access”权限
                 startActivityForResult(
                         new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),
-                        MY_PERMISSION_REQUEST_PACKAGE_USAGE_STATS);
+                        MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS);
             }
         }
     }
