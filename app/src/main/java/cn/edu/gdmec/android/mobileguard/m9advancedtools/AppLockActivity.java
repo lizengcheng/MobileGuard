@@ -37,14 +37,13 @@ public class AppLockActivity extends FragmentActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_app_lock);
         initView();
         initListener();
     }
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.imgv_leftbtn:
                 finish();
                 break;
